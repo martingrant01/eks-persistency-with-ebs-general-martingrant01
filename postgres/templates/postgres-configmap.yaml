@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.PostgresConfigMap.name }}
+  labels:
+    app: {{ .Values.Labels.postgresAppName }}
+data:
+  POSTGRES_DB: postgresdb
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: admin
+  PGDATA: /var/lib/postgresql/data/pgdata

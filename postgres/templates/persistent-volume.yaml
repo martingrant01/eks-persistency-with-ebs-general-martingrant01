@@ -1,0 +1,16 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: postgres-pv
+  labels:
+    app: {{ .Values.Labels.postgresAppName }}
+spec:
+  capacity:
+    storage: {{ .Values.PersistentVolume.size }}
+  accessModes:
+    - "ReadWriteOnce"
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: {{ .Values.PersistentVolume.storageClassName }}
+  awsElasticBlockStore: 
+    fsType: "ext4" 
+    volumeID: {{ .Values.EBSVolume.volumeID }}

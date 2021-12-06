@@ -1,0 +1,9 @@
+PersistentVolume:
+  size: "5Gi"
+  storageClassName: ebs
+EBSVolume:
+  volumeID: vol-0adc638df00fb0eb9 # This must match the id of the created EBS Volume
+Labels:
+  postgresAppName: postgres 
+PostgresConfigMap:
+  name: postgres-config
